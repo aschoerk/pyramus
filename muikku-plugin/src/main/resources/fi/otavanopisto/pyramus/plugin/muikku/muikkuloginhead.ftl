@@ -8,10 +8,20 @@
 <@include_page path="/templates/generic/message_adapter_support.jsp"/>
 
 <style type="text/css">
+
+@font-face {
+  font-family: 'Axis';
+  src: url('//cdn.muikkuverkko.fi/fonts/Axis/1.0.0/Axis.eot'); /* IE9 Compat Modes */
+  src: url('//cdn.muikkuverkko.fi/fonts/Axis/1.0.0/Axis.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('//cdn.muikkuverkko.fi/fonts/Axis/1.0.0/Axis.woff') format('woff'), /* Pretty Modern Browsers */
+       url('//cdn.muikkuverkko.fi/fonts/Axis/1.0.0/Axis.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('//cdn.muikkuverkko.fi/fonts/Axis/1.0.0/Axis.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic')
+
   body {
-    background: url("//cdn.muikkuverkko.fi/assets/muikku/main-background.png") no-repeat scroll center top, #f6fcff url("//cdn.muikkuverkko.fi/assets/muikku/main-background-slice.png") repeat-x scroll left top;
-    color: #2c2c2c;
-    font-family: "Open Sans",Verdana,sans-serif;
+    font-family: "Gentium Basic";
     font-size: 14px;
     line-height: 1.5em;
     margin: 0;
@@ -19,12 +29,16 @@
   }   
   
   h1, h2, h3, h4, h5 {
-    color: #2c2c2c;
+    font-family: "Axis",Verdana,sans-serif;
+    color: #6f1fee;
     margin: 0 0 1em;
     text-transform: uppercase;
+    text-align: center;
   }
   
   .formLabel, label {
+    color: #6f1fee;
+    font-family: "Axis",Verdana,sans-serif;
     display: block;
     padding: 5px 5px 5px 0;
   }
@@ -37,11 +51,13 @@
     visibility: hidden;
     width: 0;
   }
+  
   .dialogGlassPane {
     z-index:1998;
     opacity:0.4;
     background:#000;
   }
+  
   .IxDialog {
     z-index:1999;
     font-size:16px;
@@ -49,18 +65,21 @@
     background:#fff;
     border-radius:0;
     border:0px;
-    box-shadow:0 0 100px rgba(0,0,0,0.3);
   }
+  
   .IxDialog .IxDialogTitleBar {
     margin:0 0 10px 0;
   }
+  
   .IxDialog .IxDialogTitleBar .IxDialogTitle {
     background:#7391a7;
     padding:10px;
   }
+  
   .IxDialog .IxDialogButtonsContainer {
     margin:10px 5px 5px 5px;
   }
+  
   .IxDialog .IxDialogButton {
     font-size:16px;
     text-transform:uppercase;
@@ -68,6 +87,7 @@
     padding:4px 8px;
     background:#7391a7;
   }
+  
   .muikku-login-overlay {
     position: absolute;
     top: 0;
@@ -75,15 +95,8 @@
     bottom: 0;
     left: 0;
     z-index: 998;
-    background: rgba(0, 37, 105, 0.14);
-    background: -moz-linear-gradient(top, rgba(0, 37, 105, 0.14) 0%, rgba(0, 27, 76, 0.5) 28%, black 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 37, 105, 0.14)), color-stop(28%, rgba(0, 27, 76, 0.5)), color-stop(100%, black));
-    background: -webkit-linear-gradient(top, rgba(0, 37, 105, 0.14) 0%, rgba(0, 27, 76, 0.5) 28%, black 100%);
-    background: -o-linear-gradient(top, rgba(0, 37, 105, 0.14) 0%, rgba(0, 27, 76, 0.5) 28%, black 100%);
-    background: -ms-linear-gradient(top, rgba(0, 37, 105, 0.14) 0%, rgba(0, 27, 76, 0.5) 28%, black 100%);
-    background: linear-gradient(to bottom, rgba(0, 37, 105, 0.14) 0%, rgba(0, 27, 76, 0.5) 28%, black 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#002569', endColorstr='#000000', GradientType=0 );
   }
+  
   .muikku-login-wrapper {
     position: absolute;
     top: 50%;
@@ -92,28 +105,35 @@
     width:500px;
     z-index: 999;
   }
+  
   .muikku-login-wrapper .muikku-logo {
-    background-image: url('//cdn.muikkuverkko.fi/assets/muikku/muikku-header-text-small.png');
-    background-position:left top;
+    background-image: url('//cdn.muikkuverkko.fi/assets/startup/up-logo.png');
     background-repeat: no-repeat;
-    height: 90px;
-    width: 500px;
+    background-position: center;
     position: relative;
-    z-index: 999;
+    left: 0px;
+    top: 0;
+    height: 110px;
+    background-size: 105px 70px;    
+    
+
   }
+  
   .muikku-login-wrapper .muikku-login-container {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.7);
   }
+  
   .muikku-login-wrapper .muikku-login-container h1 {
     font-weight: 300;
     font-size: 26px;
   }
+  
   .muikku-login-wrapper .muikku-login-container .formElementRow {
     margin: 10px 0 0 0;
   }
+  
   .muikku-login-wrapper .muikku-login-container .formElementRow label {
     font-weight: 300;
     text-transform: uppercase;
@@ -124,30 +144,42 @@
   
   .muikku-login-wrapper .muikku-login-container .formElementRow input[type="text"],
   .muikku-login-wrapper .muikku-login-container .formElementRow input[type="password"] {
+    font-family: "Gentium Basic";
+    text-align: center;
     font-size: 18px;
     font-weight: 300;
+    border-radius: 0;
     padding: 8px 16px;
-    border-radius: 3px;
     line-height: 2em;
     box-sizing: border-box;
     width: 100%;
     background-color: #fff;
-    border: 1px solid #dadada;
-    color: #606060;
+    border: none;
+    border-bottom: 1px solid #6f1fee;
+    color: #6f1fee;
     height: auto;
   }
   
+    
+  .muikku-login-wrapper .muikku-login-container .formElementRow.login {
+    display: flex;
+    justify-content: center;
+    
+  } 
+  
   .muikku-login-wrapper .muikku-login-container .formElementRow input[type=submit].login-button {
-    background: #27b91c none repeat scroll 0 0;
+    background: #6f1fee none repeat scroll 0 0;
+    font-family: "Axis",Verdana,sans-serif;
     border: 0 none;
-    border-radius: 3px;
+    border-radius: 0;
     color: #fff;
     float: right;
-    font-size: 18px;
+    letter-spacing: 2px;
+    font-size: 15px;
     font-weight: 300;
     line-height: 2em;
     margin: 10px 0 0 10px;
-    padding: 8px 16px;
+    padding: 2px 28px;
     cursor: pointer;
     display: inline-block;
     text-transform: uppercase;
