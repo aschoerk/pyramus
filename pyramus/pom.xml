@@ -349,6 +349,11 @@
       <artifactId>pyramus-webhooks</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>fi.otavanopisto.pyramus</groupId>
+      <artifactId>muikku-plugin</artifactId>
+    </dependency>
+
     <!-- Test Dependecies -->
 
     <dependency>
