@@ -8,7 +8,7 @@
     <div class="muikku-login-wrapper">
     <div class="muikku-logo"></div>
     <div class="muikku-login-container">
-    <h1>Login in to <br/> Startup high school</h1>
+    <h1>Login to <br/> Startup high school</h1>
     <form action="login.json" method="post" ix:jsonform="true">
       <div class="formElementRow">
         <input type="text" placeholder="Username" required="required" name="username" id="username">

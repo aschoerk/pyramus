@@ -218,8 +218,8 @@
       z-index:999;
     }
     .muikku-login-wrapper .muikku-logo {
-      background-image: url('//cdn.muikkuverkko.fi/assets/muikku/muikku-header-text-small.png');
-      background-position:left top;
+      background-image: url('//cdn.muikkuverkko.fi/assets/startup/up-logo.png');
+      background-position:center top;
       background-repeat: no-repeat;
       height: 90px;
       max-width:500px;
