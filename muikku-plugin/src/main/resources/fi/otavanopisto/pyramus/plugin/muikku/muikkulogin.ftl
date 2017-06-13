@@ -18,7 +18,7 @@
       </div>
       
       <div class="formElementRow login">
-<!--      
+<!--
         <#list externalProviders as externalProvider>
           <a class="${externalProvider.name}-button external-login-button" href="?external=${externalProvider.name}"></a>
         </#list>
