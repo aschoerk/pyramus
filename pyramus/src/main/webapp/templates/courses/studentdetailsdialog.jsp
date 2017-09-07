@@ -19,6 +19,7 @@
           organization: form.organization.value,
           additionalInfo: form.additionalInfo.value,
           roomId: form.roomId.value,
+          roomAdditionalInfo: form.roomAdditionalInfo.value,
           lodgingFee: form.lodgingFee.value,
           lodgingFeeCurrency: form.lodgingFeeCurrency.value,
           reservationFee: form.reservationFee.value,
@@ -37,6 +38,7 @@
           billingDetailsCompanyIdentifier: form.billingDetailsCompanyIdentifier.value,
           billingDetailsReferenceNumber: form.billingDetailsReferenceNumber.value,
           billingDetailsElectronicBillingAddress: form.billingDetailsElectronicBillingAddress.value,
+          billingDetailsElectronicBillingOperator: form.billingDetailsElectronicBillingOperator.value,
           billingDetailsNotes: form.billingDetailsNotes.value
         };
       }
@@ -160,6 +162,15 @@
       
       <div class="genericFormSection">
         <jsp:include page="/templates/generic/fragments/formtitle.jsp">
+          <jsp:param name="titleLocale" value="courses.studentDetails.roomAdditionalInfoTitle"/>
+          <jsp:param name="helpLocale" value="courses.studentDetails.roomAdditionalInfoHelp"/>
+        </jsp:include>
+        
+        <input type="text" name="roomAdditionalInfo" value="${courseStudent.roomAdditionalInfo}"/>
+      </div>  
+      
+      <div class="genericFormSection">
+        <jsp:include page="/templates/generic/fragments/formtitle.jsp">
           <jsp:param name="titleLocale" value="courses.studentDetails.lodgingFeeTitle"/>
           <jsp:param name="helpLocale" value="courses.studentDetails.lodgingFeeHelp"/>
         </jsp:include>
@@ -280,7 +291,12 @@
           
           <div class="billingDetailsRow">
             <label for="billing-details-electronicBillingAddress"><fmt:message key="courses.studentDetails.billingDetails.electronicBillingAddress"/></label>
-            <textarea id="billing-details-electronicBillingAddress" name="billingDetailsElectronicBillingAddress">${courseStudent.billingDetails.electronicBillingAddress}</textarea>
+            <input id="billing-details-electronicBillingAddress" type="text" name="billingDetailsElectronicBillingAddress" value="${courseStudent.billingDetails.electronicBillingAddress}" />
+          </div>
+          
+          <div class="billingDetailsRow">
+            <label for="billing-details-electronicBillingOperator"><fmt:message key="courses.studentDetails.billingDetails.electronicBillingOperator"/></label>
+            <input id="billing-details-electronicBillingOperator" type="text" name="billingDetailsElectronicBillingOperator" value="${courseStudent.billingDetails.electronicBillingOperator}"/>
           </div>
           
           <div class="billingDetailsRow">

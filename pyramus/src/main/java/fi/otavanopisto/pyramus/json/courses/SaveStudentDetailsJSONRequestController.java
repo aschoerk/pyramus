@@ -27,6 +27,7 @@ public class SaveStudentDetailsJSONRequestController extends JSONRequestControll
     String organization = requestContext.getString("organization");
     String additionalInfo = requestContext.getString("additionalInfo");
     Long roomId = requestContext.getLong("roomId");
+    String roomAdditionalInfo = requestContext.getString("roomAdditionalInfo");
     BigDecimal lodgingFee = requestContext.getBigDecimal("lodgingFee");
     Currency lodgingFeeCurrency = requestContext.getCurrency("lodgingFeeCurrency");
     BigDecimal reservationFee = requestContext.getBigDecimal("reservationFee");
@@ -45,6 +46,7 @@ public class SaveStudentDetailsJSONRequestController extends JSONRequestControll
     String billingDetailsCompanyIdentifier = requestContext.getString("billingDetailsCompanyIdentifier"); 
     String billingDetailsReferenceNumber = requestContext.getString("billingDetailsReferenceNumber"); 
     String billingDetailsElectronicBillingAddress = requestContext.getString("billingDetailsElectronicBillingAddress"); 
+    String billingDetailsElectronicBillingOperator = requestContext.getString("billingDetailsElectronicBillingOperator"); 
     String billingDetailsNotes = requestContext.getString("billingDetailsNotes");
     
     Long billingDetailsId = requestContext.getLong("billingDetailsId");
@@ -64,6 +66,7 @@ public class SaveStudentDetailsJSONRequestController extends JSONRequestControll
         billingDetailsCompanyIdentifier = billingDetails.getCompanyIdentifier();
         billingDetailsReferenceNumber = billingDetails.getReferenceNumber();
         billingDetailsElectronicBillingAddress = billingDetails.getElectronicBillingAddress();
+        billingDetailsElectronicBillingOperator = billingDetails.getElectronicBillingOperator();
         billingDetailsNotes = billingDetails.getNotes();
       }
     }
@@ -72,7 +75,7 @@ public class SaveStudentDetailsJSONRequestController extends JSONRequestControll
         billingDetailsStreetAddress1, billingDetailsStreetAddress2, billingDetailsPostalCode, billingDetailsCity,
         billingDetailsRegion, billingDetailsCountry, billingDetailsPhoneNumber, billingDetailsEmailAddress,
         billingDetailsCompanyIdentifier, billingDetailsReferenceNumber, billingDetailsElectronicBillingAddress,
-        billingDetailsNotes);
+        billingDetailsElectronicBillingOperator, billingDetailsNotes);
     
     if (courseStudentId == null) {
       throw new SmvcRuntimeException(PyramusStatusCode.UNDEFINED, "Missing courseStudentId parameter");
@@ -109,11 +112,12 @@ public class SaveStudentDetailsJSONRequestController extends JSONRequestControll
         billingDetailsDAO.updateReferenceNumber(billingDetails, billingDetailsReferenceNumber);
         billingDetailsDAO.updateNotes(billingDetails, billingDetailsNotes);
         billingDetailsDAO.updateElectronicBillingAddress(billingDetails, billingDetailsElectronicBillingAddress);
+        billingDetailsDAO.updateElectronicBillingOperator(billingDetails, billingDetailsElectronicBillingOperator);
       } else {
         courseStudentDAO.updateBillingDetails(courseStudent, billingDetailsDAO.create(billingDetailsPersonName, billingDetailsCompanyName, billingDetailsStreetAddress1,
             billingDetailsStreetAddress2, billingDetailsPostalCode, billingDetailsCity, billingDetailsRegion,
             billingDetailsCountry, billingDetailsPhoneNumber, billingDetailsEmailAddress,
-            billingDetailsElectronicBillingAddress, billingDetailsCompanyIdentifier, billingDetailsReferenceNumber,
+            billingDetailsElectronicBillingAddress, billingDetailsElectronicBillingOperator, billingDetailsCompanyIdentifier, billingDetailsReferenceNumber,
             billingDetailsNotes));
       }
     } else {
@@ -126,6 +130,7 @@ public class SaveStudentDetailsJSONRequestController extends JSONRequestControll
     courseStudentDAO.updateOrganization(courseStudent, organization);
     courseStudentDAO.updateAdditionalInfo(courseStudent, additionalInfo);
     courseStudentDAO.updateRoom(courseStudent, room);
+    courseStudentDAO.updateRoomAdditionalInfo(courseStudent, roomAdditionalInfo);
     courseStudentDAO.updateLodgingFee(courseStudent, lodgingFee, lodgingFeeCurrency);
     courseStudentDAO.updateReservationFee(courseStudent, reservationFee, reservationFeeCurrency);
   }
