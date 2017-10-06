@@ -8,7 +8,7 @@
     <div class="muikku-login-wrapper">
     <div class="muikku-logo"></div>
     <div class="muikku-login-container">
-    <h1>Kirjaudu <br/>Startup High Scooliin</h1>
+    <h1>Kirjaudu <br/>Startup High Schooliin</h1>
     <form action="login.json" method="post" ix:jsonform="true">
       <div class="formElementRow">
         <input type="text" placeholder="Käyttäjätunnus" required="required" name="username" id="username">
